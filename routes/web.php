@@ -3,6 +3,7 @@
 use App\Http\Controllers\administrateurs\AccueilController;
 use App\Http\Controllers\administrateurs\authentification\LoginController;
 use App\Http\Controllers\administrateurs\messages\MessageController;
+use App\Http\Controllers\administrateurs\recruteurs\RecruteurController;
 use App\Http\Controllers\visiteurs\actualites\ActualiteController;
 use App\Http\Controllers\visiteurs\apropos\AproposController;
 use App\Http\Controllers\visiteurs\authentification\AuthController;
@@ -65,8 +66,9 @@ Route::match(['get','post'],'/newsletters',[NewsLetterController::class, 'add_ne
 Route::match(['get','post'], '/Recruteurs-accueil', [App\Http\Controllers\recruteurs\AccueilController::class, 'index'])->name('accueil_recruteur');
 Route::match(['get','post'], '/Recruteurs-login', [App\Http\Controllers\recruteurs\authentification\AuthController::class, 'login'])->name('login_recruteur');
 Route::match(['get','post'], '/Recruteurs-register', [App\Http\Controllers\recruteurs\authentification\AuthController::class, 'register'])->name('register_recruteur');
-
-
+Route::match(['get','post'], '/Recruteurs-register-success', [App\Http\Controllers\recruteurs\authentification\AuthController::class, 'recruteur_register'])->name('recruteur_register');
+Route::match(['get','post'], '/4-Recruteurs-login-success', [App\Http\Controllers\recruteurs\authentification\AuthController::class, 'recruteur_login_success'])->name('recruteur_login_success');
+Route::match(['get','post'], '/Recruteurs-logout-success', [App\Http\Controllers\recruteurs\authentification\AuthController::class, 'logout'])->name('logout_recruteur');
 
 
 
@@ -98,6 +100,8 @@ Route::match(['get','post'], '/Recruteurs-register', [App\Http\Controllers\recru
 
 // LISTES DES ROUTES POUR LE SITE ADMIN
 Route::get('/1012/I-find/Admin-web-site/Login', [LoginController::class, 'login'])->name('login_admin');
+Route::match(['get', 'post'], '/1012/I-find/Admin-web-site/Register-success', [LoginController::class, 'admin_register'])->name('login_admin_success');
+Route::match(['get', 'post'], '/1012/I-find/Admin-web-site/login-success', [LoginController::class, 'admin_login_success'])->name('admin_login_success');
 Route::get('/1-15/I-find/Admin-web-site/Register', [LoginController::class, 'register'])->name('register_admin');
 
 Route::middleware(['auth'])->group(function () {
@@ -115,4 +119,9 @@ Route::middleware(['auth'])->group(function () {
     Route::match(['get', 'post'], '/Admin-web78{id}50o-site/news-edit', [App\Http\Controllers\administrateurs\actualites\ActualiteController::class, 'editer_actualite'])->name('editer_actualite');
     Route::match(['get', 'post'], '/Admin-web-site/edit-news-succes', [App\Http\Controllers\administrateurs\actualites\ActualiteController::class, 'modifier_actualite'])->name('modifier_actualite');
     Route::match(['get', 'post'], '/logout-out-admin', [LoginController::class, 'logout'])->name('logout');
+    Route::match(['get', 'post'], '/gestion-des-recruteurs-comptes-non-confirmes', [RecruteurController::class, 'index'])->name('liste_compte_non_confirme');
+    Route::match(['get', 'post'], '/gestion-des-3-recruteurs-activer-compte-{id}', [RecruteurController::class, 'activer_compte_recruteur'])->name('activer_compte_recruteur');
+    Route::match(['get', 'post'], '/{id}-gestion-des-recruteurs-desactiver-compte-12', [RecruteurController::class, 'desactiver_compte_recruteur'])->name('desactiver_compte_recruteur');
+    Route::match(['get', 'post'], '/gestion-3-des-2{id}-recruteurs-7-supprimer-un-compte', [RecruteurController::class, 'supprimer_compte_recruteur'])->name('supprimer_compte_recruteur');
+
 });

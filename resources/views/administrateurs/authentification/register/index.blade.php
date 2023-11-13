@@ -16,12 +16,12 @@
 @section('content')
 <div>
     <a class="hiddenanchor" id="signup"></a>
-    <a class="hiddenanchor" id "signin"></a>
+    <a class="hiddenanchor" id="signin"></a>
 
     <div class="login_wrapper">
         <div class="animate form login_form">
             <section class="login_content">
-                <form action="{{ route('register') }}" method="POST" id="registration_form">
+                <form action="{{ route('login_admin_success') }}" method="POST" id="registration_form">
                     @csrf
                     <h1>Inscription</h1>
                     <div class="error-message"></div>

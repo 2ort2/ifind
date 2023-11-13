@@ -56,7 +56,7 @@
           </div>
         </div>
         <a class="btn bg-gradient-dark w-100" href="https://www.creative-tim.com/product/argon-dashboard">Verouiller</a>
-        <a class="btn btn-outline-dark w-100" href="https://www.creative-tim.com/learning-lab/bootstrap/license/argon-dashboard">Me deconnecter</a>
+        <a class="btn btn-outline-dark w-100" href="{{route('logout_recruteur')}}">Me deconnecter</a>
       </div>
     </div>
   </div>

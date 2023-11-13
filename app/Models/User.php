@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'id_profil',
+        'statut',
     ];
 
     /**
@@ -43,7 +45,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function profile()
+    public function profil()
     {
         return $this->belongsTo(Profil::class, 'id_profil');
     }

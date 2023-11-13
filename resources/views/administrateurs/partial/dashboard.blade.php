@@ -13,7 +13,7 @@
         </div>
         <div class="profile_info">
           <span>Bienvenue,</span>
-          <h2>{{Auth::user()->name}}</h2>
+          <h2>{{Auth::guard('administrateur')->user()->name}}</h2>
         </div>
       </div>
       <!-- /menu profile quick info -->
@@ -25,9 +25,9 @@
         <div class="menu_section">
           <h3>General</h3>
           <ul class="nav side-menu">
-            <li><a><i class="fa fa-home"></i> Accueil <span class="fa fa-chevron-down"></span></a>
+            <li><a><i class="fa fa-home"></i> Accueil<span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu">
-                <li><a href="{{route('accueil_admin')}}">Dashboard</a></li>
+                <li><a href="{{route('accueil_admin')}}">Bilan</a></li>
                 <li><a href="index2.html">Dashboard2</a></li>
                 <li><a href="index3.html">Dashboard3</a></li>
               </ul>
@@ -38,9 +38,9 @@
                 <li><a href="{{route('liste_des_actualites')}}">Liste</a></li>
               </ul>
             </li>
-            <li><a><i class="fa fa-desktop"></i> UI Elements <span class="fa fa-chevron-down"></span></a>
+            <li><a><i class="fa fa-desktop"></i>Gestion des recruteurs<span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu">
-                <li><a href="general_elements.html">General Elements</a></li>
+                <li><a href="{{route('liste_compte_non_confirme')}}">Compte non activé</a></li>
                 <li><a href="media_gallery.html">Media Gallery</a></li>
                 <li><a href="typography.html">Typography</a></li>
                 <li><a href="icons.html">Icons</a></li>

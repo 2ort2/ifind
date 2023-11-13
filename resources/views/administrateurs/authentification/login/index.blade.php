@@ -13,7 +13,7 @@
     <div class="login_wrapper">
       <div class="animate form login_form">
         <section class="login_content">
-          <form action="{{route('login')}}" method="POST">
+          <form action="{{route('admin_login_success')}}" method="POST">
             @csrf
             <h1>Connexion</h1>
             <div>
@@ -39,7 +39,7 @@
 
               <div>
                 <h1><i class="fa fa-paw"></i> I-FIND!</h1>
-                <p>©2016 All Rights Reserved. Groupe Blaise - <a href="">Julien -Shalom</a>. Termes et conditions</p>
+                <p>©2023 tout droit reservé. Groupe <a href="">Blaise - Julien -Shalom</a>. Termes et conditions</p>
               </div>
             </div>
           </form>

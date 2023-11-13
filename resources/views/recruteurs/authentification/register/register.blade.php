@@ -70,15 +70,19 @@
               </div>
             </div>
             <div class="card-body">
-              <form role="form">
+              <form method="POST" action="{{route('recruteur_register')}}">
+                @csrf
                 <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="Nom et prenom*" aria-label="Name">
+                  <input name="name" type="text" class="form-control" placeholder="Nom de l'entreprise*" aria-label="Name">
                 </div>
                 <div class="mb-3">
-                  <input type="email" class="form-control" placeholder="Adresse email*" aria-label="Email">
+                  <input name="email" type="email" class="form-control" placeholder="Adresse email*" aria-label="Email">
                 </div>
                 <div class="mb-3">
-                  <input type="password" class="form-control" placeholder="Mot de passe*" aria-label="Password">
+                  <input name="password" type="password" class="form-control" placeholder="Mot de passe*" aria-label="Password">
+                </div>
+                <div class="mb-3">
+                    <input name="confirm" type="password" class="form-control" placeholder="Mot de passe*" aria-label="Confirmation password">
                 </div>
                 <div class="form-check form-check-info text-start">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
@@ -87,7 +91,7 @@
                   </label>
                 </div>
                 <div class="text-center">
-                  <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2">M'inscrire</button>
+                  <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">M'inscrire</button>
                 </div>
                 <p class="text-sm mt-3 mb-0">J'ai déjà un compte? <a href="{{route('login_recruteur')}}" class="text-dark font-weight-bolder">Me connecter</a></p>
               </form>

@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string("image_actualite");
             $table->longText("contenu")->nullable();
             $table->integer("statut")->default(0);
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

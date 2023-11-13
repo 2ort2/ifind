@@ -6,9 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="/templates/recruteurs/assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="{{asset('/templates/recruteurs/assets/img/favicon.png')}}">
-  <title>
-    Argon Dashboard 2 by Creative Tim
-  </title>
+  <title>I-FIND | {{$title}}</title>
 
   @include('recruteurs.authentification.include.style')
   @yield('css')

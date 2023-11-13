@@ -31,11 +31,11 @@ class CreateNewUser implements CreatesNewUsers
         //     'password' => $this->passwordRules(),
         // ])->validate();
 
-        $name = $input['nom']. ' '.$input['prenom'];
-        return User::create([
-            'name' => $name,
-            'email' => $input['email'],
-            'password' => Hash::make($input['password']),
-        ]);
+        // $name = $input['nom']. ' '.$input['prenom'];
+        // return User::create([
+        //     'name' => $name,
+        //     'email' => $input['email'],
+        //     'password' => Hash::make($input['password']),
+        // ]);
     }
 }

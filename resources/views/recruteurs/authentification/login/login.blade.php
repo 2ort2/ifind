@@ -18,19 +18,20 @@
                   <p class="mb-0" style="text-align: center">Verifier que vos informations sont correcte avant de valider</p>
                 </div>
                 <div class="card-body">
-                  <form role="form">
+                  <form method="POST" action="{{route('recruteur_login_success')}}">
+                    @csrf
                     <div class="mb-3">
-                      <input type="email" class="form-control form-control-lg" placeholder="Votre email*" aria-label="Email">
+                      <input name="email" type="email" class="form-control form-control-lg" placeholder="Votre email*" aria-label="Email">
                     </div>
                     <div class="mb-3">
-                      <input type="email" class="form-control form-control-lg" placeholder="Mot de passe*" aria-label="Password">
+                      <input name="password" type="password" class="form-control form-control-lg" placeholder="Mot de passe*" aria-label="Password">
                     </div>
                     <div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" id="rememberMe">
                       <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>
                     </div>
                     <div class="text-center">
-                      <button style="background-color: #344767" type="button" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Me connecter</button>
+                      <button style="background-color: #344767" type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Me connecter</button>
                     </div>
                   </form>
                 </div>
