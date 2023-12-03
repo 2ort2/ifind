@@ -8,4 +8,4 @@
 <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="{{asset('/templates/recruteurs/assets/js/argon-dashboard.min.js?v=2.0.4')}}"></script>
 <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
- 
+<script src="{{asset('/summernote/summernote/summernote-lite.min.js')}}"></script>

@@ -43,7 +43,7 @@
                             </a>
                             <p>{!! mb_substr($actualite->contenu,0,200) !!} ...</p>
                             <ul class="blog-info-link">
-                                <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
+                                <li><a href="#"><i class="fa fa-user"></i> Par : {{$actualite->name}}</a></li>
                                 <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
                             </ul>
                         </div>

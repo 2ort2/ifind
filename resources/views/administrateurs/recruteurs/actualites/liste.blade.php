@@ -1,4 +1,4 @@
-@extends('administrateurs.app',['title'=>'Compte visiteurs'])
+@extends('administrateurs.app',['title'=>'Actualités'])
 @section('css')
 <style>
 
@@ -10,7 +10,7 @@
     <div class="">
       <div class="page-title">
         <div class="title_left">
-          <h3>Liste des comptes non confirmé.</h3>
+          <h3>Liste des actualités.</h3>
         </div>
 
         <div class="title_right">
@@ -32,7 +32,7 @@
         <div class="col-md-12 col-sm-12 ">
           <div class="x_panel">
             <div class="x_title">
-              <h2>Comptes recruteurs</h2>
+              <h2>Actualités</h2>
               <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -53,16 +53,15 @@
                     <div class="col-sm-12">
                       <div class="card-box table-responsive">
               <p class="text-muted font-13 m-b-30">
-                Cliquez sur l'une des icones se trouvant à droite de chaque ligne du tableau et correspondant à une action de votre choix pour effectuer l'action. Par exemple vous pouvez supprimer un compte en cliquant sur l'icone en forme de X.
+                Cliquez sur l'une des icones se trouvant à droite de chaque ligne du tableau et correspondant à une action de votre choix pour effectuer l'action. Par exemple vous pouvez supprimer une actualité en cliquant sur l'icone en forme de X.
               </p>
 
               <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>NOM</th>
-                    <th>EMAIL</th>
-                    <th>DATE</th>
+                    <th>TITRE</th>
+                    <th>STATUT</th>
                     <th>ACTION</th>
                   </tr>
                 </thead>
@@ -70,24 +69,28 @@
                     @php
                         $numero = 0;
                     @endphp
-                    @foreach ($users as $user)
+                    @foreach ($actualites as $actualite)
                     @php
                         $numero +=1
                     @endphp
                     <tr>
                         <td>{{$numero}}</td>
-                        <td>{{$user->name}}</td>
-                        <td><a href="mailto:{{$user->email}}">{{$user->email}}</a></td>
+                        <td>{{$actualite->titre}}</td>
                         <td>
-                            {{$user->created_at}}
+                            @if ($actualite->statut == 0)
+                                Non publié
+                            @else
+                                Publié
+                            @endif
                         </td>
                         <td style="text-align: center">
-                            <a href="{{route('activer_compte_recruteur',['id'=>$user -> id])}}"><i class="fa fa-check-square"></i></a>
-                            {{-- <a href="{{route('annuler_publication_actualite',['id'=>$user -> id])}}"><i class="fa fa-close"></i></a> --}}
+                            @if ($actualite->statut == 0)
+                                <a href="{{route('publier_actualite',['id'=>$actualite -> id])}}"><i class="fa fa-check-square"></i></a>
+                            @else
+                                <a href="{{route('annuler_publication_actualite',['id'=>$actualite -> id])}}"><i class="fa fa-close"></i></a>
+                            @endif
 
-                            <a href="{{route('supprimer_compte_recruteur',['id'=>$user -> id])}}"><i class="fa fa-trash"></i></a>
-
-                            {{-- <a href="{{route('editer_actualite',['id'=>$user -> id])}}"><i class="fa fa-pencil-square"></i></a> --}}
+                            <a href="{{route('supprimer_actualite',['id'=>$actualite -> id])}}"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                     @endforeach

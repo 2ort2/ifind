@@ -61,15 +61,19 @@ Route::match(['get','post'],'/newsletters',[NewsLetterController::class, 'add_ne
 
 
 
-
-
-Route::match(['get','post'], '/Recruteurs-accueil', [App\Http\Controllers\recruteurs\AccueilController::class, 'index'])->name('accueil_recruteur');
 Route::match(['get','post'], '/Recruteurs-login', [App\Http\Controllers\recruteurs\authentification\AuthController::class, 'login'])->name('login_recruteur');
 Route::match(['get','post'], '/Recruteurs-register', [App\Http\Controllers\recruteurs\authentification\AuthController::class, 'register'])->name('register_recruteur');
 Route::match(['get','post'], '/Recruteurs-register-success', [App\Http\Controllers\recruteurs\authentification\AuthController::class, 'recruteur_register'])->name('recruteur_register');
 Route::match(['get','post'], '/4-Recruteurs-login-success', [App\Http\Controllers\recruteurs\authentification\AuthController::class, 'recruteur_login_success'])->name('recruteur_login_success');
-Route::match(['get','post'], '/Recruteurs-logout-success', [App\Http\Controllers\recruteurs\authentification\AuthController::class, 'logout'])->name('logout_recruteur');
 
+Route::middleware(['web', 'auth:recruteur'])->group(function () {
+    Route::match(['get','post'], '/Recruteurs-accueil', [App\Http\Controllers\recruteurs\AccueilController::class, 'index'])->name('accueil_recruteur');
+    Route::match(['get','post'], '/Recruteurs-logout-success', [App\Http\Controllers\recruteurs\authentification\AuthController::class, 'logout'])->name('logout_recruteur');
+    Route::match(['get','post'], '/Recruteurs-add-news-form', [App\Http\Controllers\recruteurs\actualites\ActuController::class, 'index'])->name('recruteur_news_form');
+    Route::match(['get','post'], '/Recruteurs-add-news-success', [App\Http\Controllers\recruteurs\actualites\ActuController::class, 'ajouter_actualite'])->name('recruteur_news_succes');
+
+
+});
 
 
 
@@ -104,7 +108,7 @@ Route::match(['get', 'post'], '/1012/I-find/Admin-web-site/Register-success', [L
 Route::match(['get', 'post'], '/1012/I-find/Admin-web-site/login-success', [LoginController::class, 'admin_login_success'])->name('admin_login_success');
 Route::get('/1-15/I-find/Admin-web-site/Register', [LoginController::class, 'register'])->name('register_admin');
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['web', 'auth:administrateur'])->group(function () {
     Route::get('/404/1-find/Admin-web-site/Accueil', [AccueilController::class, 'index'])->name('accueil_admin');
     Route::get('/1-15/I-find/Admin-web-site/liste-messages-non-lu', [MessageController::class, 'liste_des_messages_non_lus'])->name('liste_des_messages_non_lus');
     Route::get('/1-15/I-find/Admin-web-site/liste-messages-non-repondu', [MessageController::class, 'liste_des_messages_non_repondu'])->name('liste_des_messages_non_repondu');
@@ -113,6 +117,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/1-15/I-find/Admin-web-site/formaulaire-add-news', [App\Http\Controllers\administrateurs\actualites\ActualiteController::class, 'formulaire_actualite'])->name('formulaire_actualite');
     Route::match(['get', 'post'], '/Admin-web-site/add-news', [App\Http\Controllers\administrateurs\actualites\ActualiteController::class, 'ajouter_actualite'])->name('ajouter_actualite');
     Route::match(['get', 'post'], '/Admin-web-site/news-list', [App\Http\Controllers\administrateurs\actualites\ActualiteController::class, 'liste_des_actualites'])->name('liste_des_actualites');
+    Route::match(['get', 'post'], '/Admin-web-site/news-list-recruteur', [App\Http\Controllers\administrateurs\actualites\ActualiteController::class, 'recruteur_liste_des_actualites'])->name('recruteur_liste_des_actualites');
     Route::match(['get', 'post'], '/Admin-web{id}45-site/news-delete', [App\Http\Controllers\administrateurs\actualites\ActualiteController::class, 'supprimer_actualite'])->name('supprimer_actualite');
     Route::match(['get', 'post'], '/Admin-web2{id}45-site/news-publish', [App\Http\Controllers\administrateurs\actualites\ActualiteController::class, 'publier_actualite'])->name('publier_actualite');
     Route::match(['get', 'post'], '/Admin-web7{id}5-site/news-no-publish', [App\Http\Controllers\administrateurs\actualites\ActualiteController::class, 'annuler_publication_actualite'])->name('annuler_publication_actualite');

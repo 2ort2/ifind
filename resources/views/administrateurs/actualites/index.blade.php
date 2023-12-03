@@ -52,6 +52,12 @@
                             <p>Veillez renseigner tous les champs du formulaire avant de valider.</a>
                             </p>
                             <span class="section">Actualité info</span>
+                            <div class="field item form-group" style="display: none;">
+                                <label style="display: none;" class="col-form-label col-md-3 col-sm-3  label-align">Titre<span class="required">*</span></label>
+                                <div class="col-md-6 col-sm-6" style="display: none;">
+                                    <input style="display: none;" class="form-control"  name="id_user" value="{{Auth::guard('administrateur')->user()->id}}"/>
+                                </div>
+                            </div>
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Titre<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">

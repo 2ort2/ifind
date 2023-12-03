@@ -4,6 +4,7 @@ namespace App\Http\Controllers\administrateurs\actualites;
 
 use App\Http\Controllers\Controller;
 use App\Models\Actualite;
+use DB;
 use Illuminate\Http\Request;
 
 class ActualiteController extends Controller
@@ -21,6 +22,7 @@ class ActualiteController extends Controller
 
         $actualite = new Actualite();
         $actualite-> titre = $request->titre;
+        $actualite->id_user = $request->id_user;
         $actualite-> contenu = $request->contenu;
 
         if($image != null)
@@ -39,7 +41,11 @@ class ActualiteController extends Controller
     //Fonctin qui affiche la liste des actualités dans un tableau
     public function liste_des_actualites()
     {
-        $actualites = Actualite::latest()->get();
+        $actualites = Actualite::join('users', 'actualites.id_user', '=', 'users.id')
+            ->where('users.id_profil', 1)
+                ->latest('actualites.created_at')
+                    ->select('actualites.id','actualites.titre', 'actualites.statut')
+                        ->get();
         return view('administrateurs.actualites.liste', compact('actualites'));
     }
 
@@ -119,5 +125,23 @@ class ActualiteController extends Controller
         {
             return redirect()->back()->with("error", "L'actualité n'a pas été trouvée.");
         }
+    }
+
+    //Fonction qui affiche la liste des actualités ajouter par les recruteurs
+    public function recruteur_liste_des_actualites()
+    {
+        // $actualites = DB::table('actualites')
+        //     ->join('users', 'actualites.user_id', '=', 'users.id')
+        //         ->where('users.id_profil', '=', 2)
+        //             ->latest('actualites.created_at')
+        //                 ->get();
+        $actualites = Actualite::join('users', 'actualites.id_user', '=', 'users.id')
+            ->where('users.id_profil', 2)
+                ->latest('actualites.created_at')
+                    ->select('actualites.id','actualites.titre', 'actualites.statut')
+                        ->get();
+
+
+        return view('administrateurs.recruteurs.actualites.liste', compact('actualites'));
     }
 }

@@ -34,6 +34,7 @@
   @include('recruteurs.include.script')
 
   @yield('js')
+  
 </body>
 
 </html>
