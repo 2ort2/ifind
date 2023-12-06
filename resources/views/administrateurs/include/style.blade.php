@@ -28,3 +28,6 @@
 <link href="{{asset('/templates/administrateurs/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css')}}" rel="stylesheet">
 <link href="{{asset('/templates/administrateurs/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css')}}" rel="stylesheet">
 <link href="{{asset('/templates/administrateurs/vendors/google-code-prettify/bin/prettify.min.css')}}" rel="stylesheet">
+<link href="{{asset('/templates/administrateurs/vendors/pnotify/dist/pnotify.css')}}" rel="stylesheet">
+<link href="{{asset('/templates/administrateurs/vendors/pnotify/dist/pnotify.buttons.css')}}" rel="stylesheet">
+<link href="{{asset('/templates/administrateurs/vendors/pnotify/dist/pnotify.nonblock.css')}}" rel="stylesheet">

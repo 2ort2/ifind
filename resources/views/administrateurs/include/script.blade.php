@@ -62,3 +62,8 @@
 <script src="{{asset('/templates/administrateurs/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js')}}"></script>
 <script src="{{asset('/templates/administrateurs/vendors/jquery.hotkeys/jquery.hotkeys.js')}}"></script>
 <script src="{{asset('/templates/administrateurs/vendors/google-code-prettify/src/prettify.js')}}"></script>
+
+
+<script src="{{asset('/templates/administrateurs/vendors/pnotify/dist/pnotify.js')}}"></script>
+<script src="{{asset('/templates/administrateurs/vendors/pnotify/dist/pnotify.buttons.js')}}"></script>
+<script src="{{asset('/templates/administrateurs/vendors/pnotify/dist/pnotify.nonblock.js')}}"></script>

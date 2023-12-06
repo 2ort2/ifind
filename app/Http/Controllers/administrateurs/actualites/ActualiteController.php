@@ -144,4 +144,17 @@ class ActualiteController extends Controller
 
         return view('administrateurs.recruteurs.actualites.liste', compact('actualites'));
     }
+
+    //Fonction qui permet à l'admin de lire l'actualité ajouter par un recruteur
+    public function editer_actualite_recruteur($id)
+    {
+        // $actualite = Actualite::find($id);
+
+        $actualite = Actualite::join('users', 'actualites.id_user', '=', 'users.id')
+            ->where('actualites.id', $id)
+                    ->select('actualites.id','actualites.titre', 'actualites.statut', 'actualites.contenu', 'actualites.created_at', 'actualites.image_actualite', 'users.name')
+                        ->first();
+
+        return view('administrateurs.recruteurs.actualites.detail', compact('actualite'))->with('success','Actualité publié avec succes!');
+    }
 }

@@ -35,7 +35,7 @@ Route::get('/login-user',[AuthController::class, 'login'])->name('login_user');
 Route::get('/register-user',[AuthController::class, 'register'])->name('register_user');
 Route::match(['get','post'],'/envoyer-message-a-equipe-ifind',[ContactController::class, 'envoyer_message'])->name('envoyer_message');
 Route::match(['get','post'],'/newsletters',[NewsLetterController::class, 'add_news_letter'])->name('add_news_letter');
-
+Route::get('/news-view-{id}-more',[ActualiteController::class, 'detail'])->name('news_view_more');
 
 
 
@@ -122,6 +122,7 @@ Route::middleware(['web', 'auth:administrateur'])->group(function () {
     Route::match(['get', 'post'], '/Admin-web2{id}45-site/news-publish', [App\Http\Controllers\administrateurs\actualites\ActualiteController::class, 'publier_actualite'])->name('publier_actualite');
     Route::match(['get', 'post'], '/Admin-web7{id}5-site/news-no-publish', [App\Http\Controllers\administrateurs\actualites\ActualiteController::class, 'annuler_publication_actualite'])->name('annuler_publication_actualite');
     Route::match(['get', 'post'], '/Admin-web78{id}50o-site/news-edit', [App\Http\Controllers\administrateurs\actualites\ActualiteController::class, 'editer_actualite'])->name('editer_actualite');
+    Route::match(['get', 'post'], '/Admin-web78{id}50o-site/news-edit-recruteur', [App\Http\Controllers\administrateurs\actualites\ActualiteController::class, 'editer_actualite_recruteur'])->name('editer_actualite_recruteur');
     Route::match(['get', 'post'], '/Admin-web-site/edit-news-succes', [App\Http\Controllers\administrateurs\actualites\ActualiteController::class, 'modifier_actualite'])->name('modifier_actualite');
     Route::match(['get', 'post'], '/logout-out-admin', [LoginController::class, 'logout'])->name('logout');
     Route::match(['get', 'post'], '/gestion-des-recruteurs-comptes-non-confirmes', [RecruteurController::class, 'index'])->name('liste_compte_non_confirme');

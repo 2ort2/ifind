@@ -91,6 +91,9 @@
                             @endif
 
                             <a href="{{route('supprimer_actualite',['id'=>$actualite -> id])}}"><i class="fa fa-trash"></i></a>
+
+                            <a href="{{route('editer_actualite_recruteur',['id'=>$actualite -> id])}}"><i class="fa fa-pencil-square"></i></a>
+
                         </td>
                     </tr>
                     @endforeach
