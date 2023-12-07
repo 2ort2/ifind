@@ -6,84 +6,96 @@
 @endsection
 @section('content')
 
-<!-- Hero Area Start-->
-<div class="slider-area ">
-    <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="{{asset('/templates/visiteurs/assets/img/hero/about.jpg')}}">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="hero-cap text-center">
-                        <h2>Contact</h2>
+<!-- Contact Us Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="bg-light rounded p-5">
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <div class="">
+                        <h1 class="mb-4">Contactez-nous</h1>
+                        <p class="mb-4">Communiquez avec l'équipe d'I-find, messages, vos remarques et suggestions sont les bienvenus.</p>
+                        {{-- <a href="https://htmlcodex.com/contact-form">Download Now</a>. --}}
+                        <div class="rounded">
+                            <iframe class="rounded w-100"
+                            style="height: 425px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.33750346623!2d-73.97968099999999!3d40.6974881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1694259649153!5m2!1sen!2sbd"
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <form action="{{route('envoyer_message')}}" method="POST" class="mb-4">
+                        @csrf
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <input type="text" class="w-100 form-control border-0 py-3" name="nom_visiteur" placeholder="Votre nom et prenom *" required>
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="email" class="w-100 form-control border-0 py-3" name="email_visiteur" placeholder="Adresse email *" required>
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="text" class="w-100 form-control border-0 py-3" name="telephone" placeholder="Téléphone *">
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="text" class="w-100 form-control border-0 py-3" name="objet" placeholder="Objet *">
+                            </div>
+                            <div class="col-12">
+                                <textarea name="contenu" class="w-100 form-control border-0" rows="6" cols="10" placeholder="Entrez votre message" required></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button class="w-100 btn btn-primary form-control py-3" type="submit">Envoyer</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row g-4">
+                        <div class="col-xl-6">
+                            <div class="d-flex p-4 rounded bg-white">
+                                <i class="fas fa-map-marker-alt fa-2x text-primary me-4"></i>
+                                <div>
+                                    <h4>Adresse</h4>
+                                    <p class="mb-0">Carrefour 2N Totsi, Limousine</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="d-flex p-4 rounded bg-white">
+                                <i class="fas fa-envelope fa-2x text-primary me-4"></i>
+                                <div>
+                                    <h4>Notre email</h4>
+                                    <p class="mb-0">equipe.ifind@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="d-flex p-4 rounded bg-white">
+                                <i class="fa fa-phone-alt fa-2x text-primary me-4"></i>
+                                <div>
+                                    <h4>Telephone</h4>
+                                    <p class="mb-0">(+228) 70 49 94 33</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="d-flex p-4 rounded bg-white">
+                                <i class="fa fa-share-alt fa-2x text-primary me-4"></i>
+                                <div>
+                                    <h4>Share</h4>
+                                    <div class="d-flex">
+                                        <a class="me-3" href=""><i class="fab fa-twitter text-dark link-hover"></i></a>
+                                        <a class="me-3" href=""><i class="fab fa-facebook-f text-dark link-hover"></i></a>
+                                        <a class="me-3" href=""><i class="fab fa-youtube text-dark link-hover"></i></a>
+                                        <a class="" href=""><i class="fab fa-linkedin-in text-dark link-hover"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-    <!-- Hero Area End -->
-<!-- ================ contact section start ================= -->
-<section class="contact-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="contact-title">Contactez-nous</h2>
-                </div>
-                <div class="col-lg-8">
-                    <form class="form-contact contact_form" action="{{route('envoyer_message')}}" method="post">
-                        @csrf
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <input class="form-control valid" name="nom" type="text" placeholder="Nom et prenom*" required>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <input class="form-control valid" name="email" type="email" placeholder="Email*" required>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <input class="form-control" name="objet" type="text" placeholder="Objet*">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <textarea class="form-control w-100" name="contenu" id="message" cols="30" rows="9" placeholder="Message" required></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group mt-3">
-                            <button type="submit" class="button button-contactForm boxed-btn">Envoyer</button>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-lg-3 offset-lg-1">
-                    <div class="media contact-info">
-                        <span class="contact-info__icon"><i class="ti-home"></i></span>
-                        <div class="media-body">
-                            <h3>TOGO, Lomé.</h3>
-                            <p>Agoé, BP12</p>
-                        </div>
-                    </div>
-                    <div class="media contact-info">
-                        <span class="contact-info__icon"><i class="ti-tablet"></i></span>
-                        <div class="media-body">
-                            <h3>+228 90909090</h3>
-                            <p>Lundi à Samedi - 07h à 17h</p>
-                        </div>
-                    </div>
-                    <div class="media contact-info">
-                        <span class="contact-info__icon"><i class="ti-email"></i></span>
-                        <div class="media-body">
-                            <h3>ifindjob@gmail.com</h3>
-                            <p>Nous disponible pour vous.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-</section>
+<!-- Contact Us End -->
 
 @endsection
 @section('js')

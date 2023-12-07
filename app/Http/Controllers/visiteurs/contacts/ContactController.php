@@ -18,8 +18,9 @@ class ContactController extends Controller
     public function envoyer_message(Request $request)
     {
         $message = new MessageVisiteur();
-        $message-> nom_visiteur = $request->nom;
-        $message-> email_visiteur = $request->email;
+        $message-> nom_visiteur = $request->nom_visiteur;
+        $message-> email_visiteur = $request->email_visiteur;
+        $message-> telephone = $request->telephone;
         $message-> objet = $request->objet;
         $message-> contenu = $request->contenu;
 

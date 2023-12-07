@@ -1,32 +1,43 @@
 <!DOCTYPE html>
-<html lang="fr">
-	<head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="manifest" href="site.webmanifest">
-		<link rel="shortcut icon" type="image/x-icon" href="{{asset('/templates/visiteurs/assets/img/favicon.ico')}}">
+<html lang="en">
 
+    <head>
+        <meta charset="utf-8">
+        <link style="border-radius: 25px" rel="shortcut icon" type="image/x-icon" href="{{asset('/logo/ifind.png')}}">
 		<title>I-FIND | {{$title}}</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
         @include('visiteurs.include.style')
         @yield('css')
     </head>
-	<body>
-        @include('visiteurs.partial.preloader')
 
-		<!--En tête du site-->
-		@include('visiteurs.partial.headerHome')
+    <body>
 
-        {{--Contenu en fonction des clics du visiteurs--}}
+        <!-- Header Start -->
+        @include('visiteurs.partial.headerHome')
+        <!-- Header End -->
+
+
+
         @yield('content')
 
-        {{--Pied de page--}}
+
         @include('visiteurs.partial.footer')
 
 
-        @include('visiteurs.include.script')
-        @yield('js')
+        <!-- Copyright Start -->
+        @include('visiteurs.partial.copyright')
+        <!-- Copyright End -->
 
-	</body>
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-primary border-2 border-white rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+        @include('visiteurs.include.script')
+
+        @yield('js')
+    </body>
+
 </html>

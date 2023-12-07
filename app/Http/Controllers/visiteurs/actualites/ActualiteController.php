@@ -14,7 +14,7 @@ class ActualiteController extends Controller
         $actualites = Actualite::join('users', 'actualites.id_user', '=', 'users.id')
             ->where('actualites.statut', 1)
                 ->latest('actualites.updated_at')
-                    ->select('actualites.id','actualites.contenu','actualites.image_actualite','actualites.titre', 'actualites.statut', 'users.name')
+                    ->select('actualites.id','actualites.contenu','actualites.image_actualite','actualites.titre', 'actualites.statut','actualites.updated_at', 'users.name')
                         ->get();
         return view("visiteurs.actualites.index", compact("actualites"));
     }

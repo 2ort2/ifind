@@ -1,12 +1,19 @@
-<link rel="stylesheet" href="{{asset('/templates/visiteurs/assets/css/bootstrap.min.css')}}">
-<link rel="stylesheet" href="{{asset('/templates/visiteurs/assets/css/owl.carousel.min.css')}}">
-<link rel="stylesheet" href="{{asset('/templates/visiteurs/assets/css/flaticon.css')}}">
-<link rel="stylesheet" href="{{asset('/templates/visiteurs/assets/css/price_rangs.css')}}">
-<link rel="stylesheet" href="{{asset('/templates/visiteurs/assets/css/slicknav.css')}}">
-<link rel="stylesheet" href="{{asset('/templates/visiteurs/assets/css/animate.min.css')}}">
-<link rel="stylesheet" href="{{asset('/templates/visiteurs/assets/css/magnific-popup.css')}}">
-<link rel="stylesheet" href="{{asset('/templates/visiteurs/assets/css/fontawesome-all.min.css')}}">
-<link rel="stylesheet" href="{{asset('/templates/visiteurs/assets/css/themify-icons.css')}}">
-<link rel="stylesheet" href="{{asset('/templates/visiteurs/assets/css/slick.css')}}">
-<link rel="stylesheet" href="{{asset('/templates/visiteurs/assets/css/nice-select.css')}}">
-<link rel="stylesheet" href="{{asset('/templates/visiteurs/assets/css/style.css')}}">
+<!-- Google Web Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@100;600;800&display=swap" rel="stylesheet">
+
+<!-- Icon Font Stylesheet -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- Libraries Stylesheet -->
+<link href="{{asset('/templates/visiteurs/lib/animate/animate.min.css')}}" rel="stylesheet">
+<link href="{{asset('/templates/visiteurs/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+
+
+<!-- Customized Bootstrap Stylesheet -->
+<link href="{{asset('/templates/visiteurs/css/bootstrap.min.css')}}" rel="stylesheet">
+
+<!-- Template Stylesheet -->
+<link href="{{asset('/templates/visiteurs/css/style.css')}}" rel="stylesheet">

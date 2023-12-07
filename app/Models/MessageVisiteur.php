@@ -13,6 +13,7 @@ class MessageVisiteur extends Model
         'nom_visiteur',
         'email_visiteur',
         'objet',
+        'telephone',
         'contenu',
         'statut',
     ];

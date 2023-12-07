@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string("nom_visiteur");
             $table->string("email_visiteur");
             $table->string("objet")->nullable();
+            $table->string("telephone")->nullable();
             $table->string("contenu");
             $table->integer("statut")->default(0);
             $table->timestamps();
