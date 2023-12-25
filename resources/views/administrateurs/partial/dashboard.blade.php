@@ -32,12 +32,22 @@
                 <li><a href="index3.html">Dashboard3</a></li>
               </ul>
             </li>
-            <li><a><i class="fa fa-edit"></i> Acutalités <span class="fa fa-chevron-down"></span></a>
+            <li><a><i class="fa fa-edit"></i> Actualités <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu">
                 <li><a href="{{route('formulaire_actualite')}}">Ajouter</a></li>
                 <li><a href="{{route('liste_des_actualites')}}">Liste</a></li>
               </ul>
             </li>
+
+
+            <li><a><i class="fa fa-edit"></i> Evenement <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                  <li><a href="{{route('affiche_evenement')}}">Ajouter</a></li>
+                  <li><a href="{{route('liste_des_evenements')}}">Liste</a></li>
+                </ul>
+              </li>
+
+
             <li><a><i class="fa fa-desktop"></i>Gestion des recruteurs<span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu">
                 <li><a href="{{route('liste_compte_non_confirme')}}">Compte non activé</a></li>

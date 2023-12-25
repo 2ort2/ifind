@@ -60,7 +60,7 @@ Route::get('/news-view-{id}-more',[ActualiteController::class, 'detail'])->name(
 
 
 
-
+//Routes pour les recruteurs
 Route::match(['get','post'], '/Recruteurs-login', [App\Http\Controllers\recruteurs\authentification\AuthController::class, 'login'])->name('login_recruteur');
 Route::match(['get','post'], '/Recruteurs-register', [App\Http\Controllers\recruteurs\authentification\AuthController::class, 'register'])->name('register_recruteur');
 Route::match(['get','post'], '/Recruteurs-register-success', [App\Http\Controllers\recruteurs\authentification\AuthController::class, 'recruteur_register'])->name('recruteur_register');
@@ -129,5 +129,14 @@ Route::middleware(['web', 'auth:administrateur'])->group(function () {
     Route::match(['get', 'post'], '/gestion-des-3-recruteurs-activer-compte-{id}', [RecruteurController::class, 'activer_compte_recruteur'])->name('activer_compte_recruteur');
     Route::match(['get', 'post'], '/{id}-gestion-des-recruteurs-desactiver-compte-12', [RecruteurController::class, 'desactiver_compte_recruteur'])->name('desactiver_compte_recruteur');
     Route::match(['get', 'post'], '/gestion-3-des-2{id}-recruteurs-7-supprimer-un-compte', [RecruteurController::class, 'supprimer_compte_recruteur'])->name('supprimer_compte_recruteur');
+    Route::get( '/afficher-evenement', [App\Http\Controllers\administrateurs\evenement\EvenementController::class, 'affiche_evenement'])->name('affiche_evenement');
+    Route::match(['get', 'post'], '/Admin-web-site/add-evenement', [App\Http\Controllers\administrateurs\evenement\EvenementController::class, 'ajouter_evenement'])->name('ajouter_evenement');
+    Route::match(['get', 'post'], '/liste-des-evenements', [App\Http\Controllers\administrateurs\evenement\EvenementController::class, 'liste_des_evenements'])->name('liste_des_evenements');
+    Route::match(['get', 'post'], '/Admin-web2{id}45-site/news-evenement', [App\Http\Controllers\administrateurs\evenement\EvenementController::class, 'publier_evenement'])->name('publier_evenement');
+    Route::match(['get', 'post'], '/Admin-web7{id}5-site/news-no-evenement', [App\Http\Controllers\administrateurs\evenement\EvenementController::class, 'annuler_publication_evenement'])->name('annuler_publication_evenement');
+    Route::match(['get', 'post'], '/Admin-web{id}45-site/news-supprimer', [App\Http\Controllers\administrateurs\evenement\EvenementController::class, 'supprimer_evenement'])->name('supprimer_evenement');
+    Route::match(['get', 'post'], '/Admin-web78{id}50o-site/news-editer-evenement', [App\Http\Controllers\administrateurs\evenement\EvenementController::class, 'editer_evenement'])->name('editer_evenement');
+    Route::match(['get', 'post'], '/Admin-web-site/modifier-evenement-17', [App\Http\Controllers\administrateurs\evenement\EvenementController::class, 'modifier_evenement'])->name('modifier_evenement');
+
 
 });
